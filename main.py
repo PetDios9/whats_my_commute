@@ -1,5 +1,8 @@
 import smtplib
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 CARRIERS = {
     "att": "@mms.att.net",
     "tmobile": "@tmomail.net",
@@ -7,8 +10,9 @@ CARRIERS = {
     "sprint": "@messaging.sprintpcs.com"
 }
  
-EMAIL = "EMAIL"
-PASSWORD = "PASSWORD"
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
+PHONE_NUMBER = os.getenv("PHONE_NUMBER")
  
 def send_message(phone_number, carrier, message):
     recipient = phone_number + CARRIERS[carrier]
@@ -23,7 +27,5 @@ def send_message(phone_number, carrier, message):
  
  
 if __name__ == "__main__":
-    phone_number = 'number'
     message = "Hi lol"
- 
-    send_message(phone_number, 'verizon', message)
+    send_message(PHONE_NUMBER, 'verizon', message)
