@@ -9,9 +9,10 @@ PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 API_KEY = os.getenv("APIKEY")
 START = os.getenv("START")
 END = os.getenv("END")
+CARRIER = os.getenv("CARRIER")
 
 distance, duration = get_commute(API_KEY, START, END)
 
 MESSAGE = f"Hello Peter. The time it will take you to work is {duration}"
 
-send_message(PHONE_NUMBER, 'verizon', MESSAGE)
+send_message(PHONE_NUMBER, CARRIER, MESSAGE)
