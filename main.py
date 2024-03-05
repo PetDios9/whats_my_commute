@@ -14,7 +14,7 @@ CARRIER = os.getenv("CARRIER")
 
 distance, duration = get_commute(API_KEY, START, END)
 
-MESSAGE = f"Hello Peter. The time it will take you to work is {duration}"
+MESSAGE = f"Hello Peter. Your commute today is {duration}."
 
 if distance is None: 
     MESSAGE = "There was an error! Fix it Peter!"
